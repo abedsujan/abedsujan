@@ -1,6 +1,8 @@
-# Step-by-Step Guide: Deploy React App to AWS EC2
+# Step-by-Step Guide: Deploy React/Next.js App to AWS EC2
 
 Follow these steps in order. I've broken it down into simple, actionable tasks.
+
+> **📝 Note**: If you have a **Next.js** project, see [NEXTJS_GUIDE.md](NEXTJS_GUIDE.md) for Next.js-specific instructions. This guide works for both React and Next.js, but Next.js has some additional configuration needed.
 
 ---
 
@@ -169,18 +171,46 @@ npm install
 ```bash
 npm run build
 ```
-(This creates a `build` folder with your static files)
+
+**For Create React App**: This creates a `build` folder with your static files
+
+**For Next.js**: 
+- First, make sure `next.config.js` has `output: 'export'` configured
+- This creates an `out` folder with your static files
+- See [NEXTJS_GUIDE.md](NEXTJS_GUIDE.md) for detailed Next.js setup
+
+**Verify your build:**
+```bash
+# For React
+ls -la build/
+
+# For Next.js
+ls -la out/
+```
 
 ---
 
 ## PART 6: CONFIGURE NGINX
 
 ### Step 12: Create Nginx Configuration
+
+**Option A: Use the automated script (Recommended)**
+
+```bash
+curl -o configure-nginx.sh https://raw.githubusercontent.com/abedsujan/abedsujan/main/scripts/configure-nginx.sh
+chmod +x configure-nginx.sh
+./configure-nginx.sh
+```
+
+This script will auto-detect whether you have a React (`build/`) or Next.js (`out/`) project and configure Nginx accordingly.
+
+**Option B: Manual configuration**
+
 ```bash
 sudo nano /etc/nginx/sites-available/react-app
 ```
 
-This opens a text editor. Copy and paste this (press Shift+Insert to paste):
+**For React projects**, copy and paste this:
 ```nginx
 server {
     listen 80;
@@ -197,9 +227,33 @@ server {
 }
 ```
 
+**For Next.js projects**, copy and paste this:
+```nginx
+server {
+    listen 80;
+    listen [::]:80;
+    
+    server_name _;
+    
+    root /home/ubuntu/YOUR_FOLDER_NAME/out;
+    index index.html;
+    
+    location / {
+        try_files $uri $uri.html $uri/ /index.html;
+    }
+    
+    # Cache Next.js static assets
+    location /_next/static/ {
+        alias /home/ubuntu/YOUR_FOLDER_NAME/out/_next/static/;
+        expires 1y;
+        add_header Cache-Control "public, immutable";
+    }
+}
+```
+
 **IMPORTANT**: Replace `YOUR_FOLDER_NAME` with your actual folder name!
 
-To save and exit:
+If using manual configuration, save and exit:
 - Press `Ctrl + X`
 - Press `Y`
 - Press `Enter`
@@ -228,7 +282,7 @@ sudo chmod -R 755 /home/ubuntu
 ### Step 15: Access Your Website
 1. Open a web browser
 2. Go to: `http://YOUR_IP` (use your EC2 public IP)
-3. **Your React app should be live!** 🎉
+3. **Your React/Next.js app should be live!** 🎉
 
 ---
 
@@ -236,7 +290,10 @@ sudo chmod -R 755 /home/ubuntu
 
 If your site doesn't load, try these:
 
-1. **Check Nginx status:**
+1. **No build/out folder?**
+   - **React**: Run `npm run build` again
+   - **Next.js**: Check `next.config.js` has `output: 'export'`, then run `npm run build`
+   - See [NEXTJS_GUIDE.md](NEXTJS_GUIDE.md) for Next.js configuration
    ```bash
    sudo systemctl status nginx
    ```

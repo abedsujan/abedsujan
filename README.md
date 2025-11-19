@@ -5,7 +5,10 @@ This repository contains guides and scripts for deploying React applications to 
 ## 📚 Available Guides
 
 ### 🚀 [Step-by-Step Guide](STEP_BY_STEP_GUIDE.md) - **START HERE!**
-A simple, beginner-friendly guide to deploy your React app to AWS EC2. Follow this if you want clear, numbered steps to do it yourself.
+A simple, beginner-friendly guide to deploy your React/Next.js app to AWS EC2. Follow this if you want clear, numbered steps to do it yourself.
+
+### ⚡ [Next.js Deployment Guide](NEXTJS_GUIDE.md) - **For Next.js Projects**
+Specific guide for deploying Next.js applications with static export configuration. Use this if `npm run build` creates an `out` folder instead of `build`.
 
 ### 📖 [Complete Deployment Guide](DEPLOYMENT.md)
 Comprehensive documentation covering:
