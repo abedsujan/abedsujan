@@ -4,13 +4,22 @@ This repository contains guides and scripts for deploying React applications to 
 
 ## 📚 Available Guides
 
-### 🚀 [Step-by-Step Guide](STEP_BY_STEP_GUIDE.md) - **START HERE!**
-A simple, beginner-friendly guide to deploy your React/Next.js app to AWS EC2. Follow this if you want clear, numbered steps to do it yourself.
+### For Frontend Deployment:
 
-### ⚡ [Next.js Deployment Guide](NEXTJS_GUIDE.md) - **For Next.js Projects**
-Specific guide for deploying Next.js applications with static export configuration. Use this if `npm run build` creates an `out` folder instead of `build`.
+🚀 **[Step-by-Step Guide](STEP_BY_STEP_GUIDE.md)** - Complete React/Next.js frontend deployment to EC2
 
-### 📖 [Complete Deployment Guide](DEPLOYMENT.md)
+⚡ **[Next.js Guide](NEXTJS_GUIDE.md)** - Specific guide for Next.js with static export
+
+### For Backend Deployment:
+
+🔥 **[Express Backend Guide](EXPRESS_BACKEND_GUIDE.md)** - **RECOMMENDED for Backend-Only Deployment**  
+Step-by-step guide for deploying Node.js Express backend with MongoDB Atlas, PM2, and optional Nginx/SSL. Perfect if you already have frontend deployed elsewhere.
+
+🗄️ **[Backend + MongoDB Guide](BACKEND_DEPLOYMENT.md)** - Backend deployment with both local MongoDB and MongoDB Atlas options
+
+### Complete Documentation:
+
+📖 **[Complete Deployment Guide](DEPLOYMENT.md)
 Comprehensive documentation covering:
 - Static website deployment
 - MongoDB integration
@@ -48,10 +57,23 @@ All scripts are in the `scripts/` folder:
 
 ## 🎯 What You'll Learn
 
+### Frontend Deployment:
 - How to launch and configure AWS EC2
-- How to deploy React applications
+- How to deploy React/Next.js applications
 - How to use Nginx as a web server
-- How to add MongoDB and backend APIs
+- Static site deployment best practices
+
+### Backend Deployment:
+- Deploy Node.js Express backend to EC2
+- Setup MongoDB Atlas cloud database
+- Use PM2 for process management
+- Configure security groups and CORS
+- Setup SSL with Let's Encrypt
+- Auto-start backend on server reboot
+
+### Full-Stack:
+- Integrate MongoDB with REST API
+- Configure Nginx as reverse proxy
 - DevOps best practices
 
 ## 💡 Tips
