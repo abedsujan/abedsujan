@@ -12,10 +12,13 @@ This repository contains guides and scripts for deploying React applications to 
 
 ### For Backend Deployment:
 
-🔥 **[Express Backend Guide](EXPRESS_BACKEND_GUIDE.md)** - **RECOMMENDED for Backend-Only Deployment**  
+🔥 **[Express Backend Guide](EXPRESS_BACKEND_GUIDE.md)** - **EC2 + MongoDB Atlas**  
 Step-by-step guide for deploying Node.js Express backend with MongoDB Atlas, PM2, and optional Nginx/SSL. Perfect if you already have frontend deployed elsewhere.
 
 🗄️ **[Backend + MongoDB Guide](BACKEND_DEPLOYMENT.md)** - Backend deployment with both local MongoDB and MongoDB Atlas options
+
+⚡ **[Lambda + DynamoDB Guide](LAMBDA_DYNAMODB_GUIDE.md)** - **SERVERLESS (No EC2 needed!)**  
+Deploy serverless backend using AWS Lambda and DynamoDB. Automatic scaling, pay-per-use pricing, zero server management. Great for variable or low traffic applications.
 
 ### Complete Documentation:
 
@@ -64,12 +67,14 @@ All scripts are in the `scripts/` folder:
 - Static site deployment best practices
 
 ### Backend Deployment:
-- Deploy Node.js Express backend to EC2
+- **EC2 Option**: Deploy Node.js Express backend to EC2
+- **Serverless Option**: Deploy with AWS Lambda + DynamoDB (no servers!)
 - Setup MongoDB Atlas cloud database
-- Use PM2 for process management
+- Use PM2 for process management (EC2)
 - Configure security groups and CORS
 - Setup SSL with Let's Encrypt
-- Auto-start backend on server reboot
+- Auto-start backend on server reboot (EC2)
+- Automatic scaling and pay-per-use pricing (Lambda)
 
 ### Full-Stack:
 - Integrate MongoDB with REST API
