@@ -17,8 +17,11 @@ Step-by-step guide for deploying Node.js Express backend with MongoDB Atlas, PM2
 
 🗄️ **[Backend + MongoDB Guide](BACKEND_DEPLOYMENT.md)** - Backend deployment with both local MongoDB and MongoDB Atlas options
 
-⚡ **[Lambda + DynamoDB Guide](LAMBDA_DYNAMODB_GUIDE.md)** - **SERVERLESS (No EC2 needed!)**  
-Deploy serverless backend using AWS Lambda and DynamoDB. Automatic scaling, pay-per-use pricing, zero server management. Great for variable or low traffic applications.
+⚡ **[Lambda + DynamoDB Guide (Console)](LAMBDA_DYNAMODB_CONSOLE_GUIDE.md)** - **SERVERLESS - RECOMMENDED**  
+Deploy serverless backend using AWS Lambda and DynamoDB through AWS Console (no CLI needed!). Automatic scaling, pay-per-use pricing (~$0.50/month for 100k requests), zero server management.
+
+📟 **[Lambda + DynamoDB Guide (CLI)](LAMBDA_DYNAMODB_GUIDE.md)** - **SERVERLESS - Advanced**  
+Same serverless deployment using AWS CLI commands. For users comfortable with command-line tools.
 
 ### Complete Documentation:
 
