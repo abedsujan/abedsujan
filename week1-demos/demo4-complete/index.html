@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Demo 4: Complete Week 1 - Memory Game</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <header class="game-header">
+            <h1>🎮 Memory Game - Week 1 Complete</h1>
+            <p class="tagline">All Week 1 features integrated!</p>
+        </header>
+        
+        <div class="stats-bar">
+            <div class="stat">
+                <span class="stat-label">Moves</span>
+                <span class="stat-value" id="move-counter">0</span>
+            </div>
+            <div class="stat">
+                <span class="stat-label">Time</span>
+                <span class="stat-value" id="timer">0:00</span>
+            </div>
+            <div class="stat">
+                <span class="stat-label">Pairs</span>
+                <span class="stat-value" id="pairs-found">0/6</span>
+            </div>
+        </div>
+
+        <div class="controls">
+            <button onclick="resetGame()" class="btn btn-primary">
+                🔄 New Game
+            </button>
+            <button onclick="toggleTimer()" class="btn btn-secondary" id="timer-btn">
+                ⏸️ Pause
+            </button>
+        </div>
+
+        <div id="card-grid" class="card-grid">
+            <!-- Cards will be dynamically generated here -->
+        </div>
+
+        <div class="game-info">
+            <h3>Week 1 Features Demonstrated:</h3>
+            <div class="features-grid">
+                <div class="feature">
+                    <span class="feature-icon">🃏</span>
+                    <span class="feature-name">Flippable Cards</span>
+                    <span class="feature-desc">3D CSS flip animation</span>
+                </div>
+                <div class="feature">
+                    <span class="feature-icon">📊</span>
+                    <span class="feature-name">Card Grid</span>
+                    <span class="feature-desc">4x3 responsive layout</span>
+                </div>
+                <div class="feature">
+                    <span class="feature-icon">🔢</span>
+                    <span class="feature-name">Move Counter</span>
+                    <span class="feature-desc">Tracks every card reveal</span>
+                </div>
+                <div class="feature">
+                    <span class="feature-icon">⏱️</span>
+                    <span class="feature-name">Game Timer</span>
+                    <span class="feature-desc">Starts on first flip</span>
+                </div>
+                <div class="feature">
+                    <span class="feature-icon">🎯</span>
+                    <span class="feature-name">Pair Tracking</span>
+                    <span class="feature-desc">Shows progress</span>
+                </div>
+                <div class="feature">
+                    <span class="feature-icon">🔀</span>
+                    <span class="feature-name">Fisher-Yates Shuffle</span>
+                    <span class="feature-desc">Random card placement</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="tech-info">
+            <h3>📚 Technologies Used:</h3>
+            <div class="tech-tags">
+                <span class="tech-tag">HTML5</span>
+                <span class="tech-tag">CSS3</span>
+                <span class="tech-tag">JavaScript ES6+</span>
+                <span class="tech-tag">CSS Grid</span>
+                <span class="tech-tag">3D Transforms</span>
+                <span class="tech-tag">DOM Manipulation</span>
+            </div>
+        </div>
+    </div>
+
+    <!-- Win Modal -->
+    <div id="win-modal" class="modal">
+        <div class="modal-content">
+            <h2>🎉 Congratulations!</h2>
+            <p>You found all pairs!</p>
+            <div class="win-stats">
+                <div class="win-stat">
+                    <strong>Moves:</strong>
+                    <span id="final-moves">0</span>
+                </div>
+                <div class="win-stat">
+                    <strong>Time:</strong>
+                    <span id="final-time">0:00</span>
+                </div>
+            </div>
+            <button onclick="closeModal(); resetGame();" class="btn btn-primary">
+                Play Again
+            </button>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

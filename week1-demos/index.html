@@ -1,0 +1,325 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Week 1 Demos - Memory Game</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            padding: 40px 20px;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            background: white;
+            padding: 40px;
+            border-radius: 15px;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+        }
+
+        h1 {
+            color: #333;
+            text-align: center;
+            margin-bottom: 10px;
+            font-size: 36px;
+        }
+
+        .subtitle {
+            text-align: center;
+            color: #666;
+            margin-bottom: 30px;
+            font-size: 18px;
+        }
+
+        .intro {
+            background: #f8f9fa;
+            padding: 25px;
+            border-radius: 10px;
+            margin-bottom: 40px;
+            line-height: 1.6;
+        }
+
+        .intro h2 {
+            color: #667eea;
+            margin-bottom: 15px;
+        }
+
+        .demos-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 25px;
+            margin-bottom: 40px;
+        }
+
+        .demo-card {
+            background: #f8f9fa;
+            border-radius: 12px;
+            padding: 25px;
+            transition: transform 0.3s, box-shadow 0.3s;
+            border: 2px solid transparent;
+        }
+
+        .demo-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+            border-color: #667eea;
+        }
+
+        .demo-number {
+            display: inline-block;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            font-size: 20px;
+            margin-bottom: 15px;
+        }
+
+        .demo-title {
+            color: #333;
+            font-size: 20px;
+            font-weight: 600;
+            margin-bottom: 10px;
+        }
+
+        .demo-description {
+            color: #666;
+            font-size: 14px;
+            line-height: 1.6;
+            margin-bottom: 15px;
+        }
+
+        .demo-features {
+            list-style: none;
+            margin-bottom: 20px;
+        }
+
+        .demo-features li {
+            color: #555;
+            font-size: 13px;
+            padding: 5px 0;
+            padding-left: 20px;
+            position: relative;
+        }
+
+        .demo-features li:before {
+            content: "✓";
+            position: absolute;
+            left: 0;
+            color: #667eea;
+            font-weight: bold;
+        }
+
+        .demo-link {
+            display: inline-block;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            text-decoration: none;
+            padding: 10px 20px;
+            border-radius: 8px;
+            font-weight: 600;
+            transition: transform 0.2s;
+            text-align: center;
+        }
+
+        .demo-link:hover {
+            transform: scale(1.05);
+        }
+
+        .features-section {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 30px;
+            border-radius: 12px;
+            margin-bottom: 30px;
+        }
+
+        .features-section h2 {
+            margin-bottom: 20px;
+        }
+
+        .features-list {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 15px;
+        }
+
+        .feature-item {
+            background: rgba(255, 255, 255, 0.1);
+            padding: 15px;
+            border-radius: 8px;
+        }
+
+        .feature-item strong {
+            display: block;
+            margin-bottom: 5px;
+        }
+
+        .footer {
+            text-align: center;
+            color: #666;
+            padding: 20px;
+            border-top: 2px solid #e0e0e0;
+            margin-top: 40px;
+        }
+
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 28px;
+            }
+
+            .container {
+                padding: 25px;
+            }
+
+            .demos-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>🎮 Week 1 Demos - Memory Game</h1>
+        <p class="subtitle">Foundation Project Teaching Materials</p>
+
+        <div class="intro">
+            <h2>📚 About These Demos</h2>
+            <p>
+                These four progressive demos teach all Week 1 milestone features for the Memory Game project.
+                Each demo builds on the previous one, introducing new concepts and techniques.
+                Perfect for live coding demonstrations and student reference.
+            </p>
+        </div>
+
+        <div class="features-section">
+            <h2>✨ Week 1 Learning Objectives</h2>
+            <div class="features-list">
+                <div class="feature-item">
+                    <strong>🃏 Flippable Cards</strong>
+                    <span>CSS 3D transforms & animations</span>
+                </div>
+                <div class="feature-item">
+                    <strong>📊 Card Grid</strong>
+                    <span>CSS Grid layout & responsive design</span>
+                </div>
+                <div class="feature-item">
+                    <strong>🔢 Move Counter</strong>
+                    <span>Track user interactions</span>
+                </div>
+                <div class="feature-item">
+                    <strong>⏱️ Game Timer</strong>
+                    <span>Implement timing with setInterval</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="demos-grid">
+            <div class="demo-card">
+                <div class="demo-number" style="display: flex;">1</div>
+                <h3 class="demo-title">Single Flippable Card</h3>
+                <p class="demo-description">
+                    Learn the fundamentals of CSS 3D transforms with a single card that flips on click.
+                </p>
+                <ul class="demo-features">
+                    <li>3D flip animation</li>
+                    <li>CSS perspective</li>
+                    <li>Backface visibility</li>
+                    <li>Click and keyboard support</li>
+                </ul>
+                <a href="demo1-single-card/index.html" class="demo-link">View Demo 1 →</a>
+            </div>
+
+            <div class="demo-card">
+                <div class="demo-number" style="display: flex;">2</div>
+                <h3 class="demo-title">Card Grid Layout</h3>
+                <p class="demo-description">
+                    Build a grid of multiple cards with data structure and shuffle algorithm.
+                </p>
+                <ul class="demo-features">
+                    <li>3x3 card grid</li>
+                    <li>Fisher-Yates shuffle</li>
+                    <li>Dynamic rendering</li>
+                    <li>Reset & re-shuffle</li>
+                </ul>
+                <a href="demo2-card-grid/index.html" class="demo-link">View Demo 2 →</a>
+            </div>
+
+            <div class="demo-card">
+                <div class="demo-number" style="display: flex;">3</div>
+                <h3 class="demo-title">Counters & Timers</h3>
+                <p class="demo-description">
+                    Add game state tracking with move counter and timer functionality.
+                </p>
+                <ul class="demo-features">
+                    <li>Move counter</li>
+                    <li>Game timer</li>
+                    <li>Pause/resume</li>
+                    <li>Game state management</li>
+                </ul>
+                <a href="demo3-counters-timers/index.html" class="demo-link">View Demo 3 →</a>
+            </div>
+
+            <div class="demo-card">
+                <div class="demo-number" style="display: flex;">4</div>
+                <h3 class="demo-title">Complete Week 1</h3>
+                <p class="demo-description">
+                    See all Week 1 features working together in a complete game experience.
+                </p>
+                <ul class="demo-features">
+                    <li>4x3 grid (6 pairs)</li>
+                    <li>Full game flow</li>
+                    <li>Win condition</li>
+                    <li>Professional UI</li>
+                </ul>
+                <a href="demo4-complete/index.html" class="demo-link">View Demo 4 →</a>
+            </div>
+        </div>
+
+        <div class="intro">
+            <h2>🎯 How to Use</h2>
+            <p><strong>For Instructors:</strong></p>
+            <ul style="margin: 10px 0 15px 20px; line-height: 1.8;">
+                <li>Use Demo 1-3 for live coding sessions</li>
+                <li>Demo 4 as reference and debugging aid</li>
+                <li>All demos are self-contained (no build required)</li>
+                <li>Source code is well-commented for learning</li>
+            </ul>
+            <p><strong>For Students:</strong></p>
+            <ul style="margin: 10px 0 0 20px; line-height: 1.8;">
+                <li>View each demo to see features in action</li>
+                <li>Read source code to understand implementation</li>
+                <li>Use as reference when building your own project</li>
+                <li>Experiment by modifying values and seeing results</li>
+            </ul>
+        </div>
+
+        <div class="footer">
+            <p><strong>📖 For complete teaching instructions, see:</strong></p>
+            <p style="margin-top: 10px;">
+                <code>MEMORY_GAME_LECTURE_PLAN.md</code> |
+                <code>MEMORY_GAME_QUICK_REFERENCE.md</code> |
+                <code>week1-demos/README.md</code>
+            </p>
+            <p style="margin-top: 20px; color: #999;">
+                HackYourFuture Foundation Project - Week 1 | January 2026
+            </p>
+        </div>
+    </div>
+</body>
+</html>

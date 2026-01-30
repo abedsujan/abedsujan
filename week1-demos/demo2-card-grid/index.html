@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Demo 2: Card Grid Layout</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Demo 2: Card Grid Layout</h1>
+        <p class="instructions">Click any card to flip it. Grid dynamically generated with shuffle!</p>
+        
+        <div class="controls">
+            <button onclick="resetGrid()" class="btn">Reset & Shuffle</button>
+            <div class="info">
+                <span>Grid Size: <strong>3x3</strong> (9 cards)</span>
+                <span>Pairs: <strong>4</strong> (8 cards + 1 single)</span>
+            </div>
+        </div>
+
+        <div id="card-grid" class="card-grid">
+            <!-- Cards will be dynamically generated here -->
+        </div>
+
+        <div class="explanation">
+            <h2>How it Works:</h2>
+            <ul>
+                <li><strong>Data Structure:</strong> Array of card objects with id, name, and emoji</li>
+                <li><strong>Doubling:</strong> Each card appears twice (pairs) using spread operator</li>
+                <li><strong>Shuffling:</strong> Fisher-Yates algorithm randomizes card positions</li>
+                <li><strong>Rendering:</strong> Dynamic creation of card elements from data</li>
+                <li><strong>Grid Layout:</strong> CSS Grid with responsive columns</li>
+            </ul>
+        </div>
+
+        <div class="code-preview">
+            <h3>Key Code:</h3>
+            <pre><code>// Card data
+const cards = [
+  { id: 1, name: 'cat', emoji: '🐱' },
+  { id: 2, name: 'dog', emoji: '🐶' }
+];
+
+// Double and shuffle
+const gameCards = [...cards, ...cards];
+const shuffled = shuffle(gameCards);
+
+// CSS Grid
+#card-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+}</code></pre>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
