@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Demo 3: Counters and Timers</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Demo 3: Counters and Timers</h1>
+        <p class="instructions">Click cards to increment the move counter. Timer starts on first card flip!</p>
+        
+        <div class="stats-bar">
+            <div class="stat">
+                <span class="stat-label">Moves</span>
+                <span class="stat-value" id="move-counter">0</span>
+            </div>
+            <div class="stat">
+                <span class="stat-label">Time</span>
+                <span class="stat-value" id="timer">0:00</span>
+            </div>
+            <div class="stat">
+                <span class="stat-label">Status</span>
+                <span class="stat-value" id="status">Ready</span>
+            </div>
+        </div>
+
+        <div class="controls">
+            <button onclick="resetGame()" class="btn btn-primary">Reset Game</button>
+            <button onclick="pauseTimer()" class="btn btn-secondary" id="pause-btn">Pause Timer</button>
+        </div>
+
+        <div id="card-grid" class="card-grid">
+            <!-- Cards will be dynamically generated here -->
+        </div>
+
+        <div class="explanation">
+            <h2>How it Works:</h2>
+            <ul>
+                <li><strong>Move Counter:</strong> Increments each time a card is revealed (flipped to back)</li>
+                <li><strong>Game Timer:</strong> Starts when the first card is flipped</li>
+                <li><strong>Timer Format:</strong> Displays as minutes:seconds (e.g., 1:23)</li>
+                <li><strong>setInterval:</strong> Updates timer every second (1000ms)</li>
+                <li><strong>Game State:</strong> Tracks if game has started, is paused, etc.</li>
+            </ul>
+        </div>
+
+        <div class="code-preview">
+            <h3>Key Code:</h3>
+            <pre><code>// Move counter
+let moveCount = 0;
+function incrementMoves() {
+    moveCount++;
+    updateDisplay();
+}
+
+// Timer with setInterval
+let startTime, timerInterval;
+function startTimer() {
+    startTime = Date.now();
+    timerInterval = setInterval(() => {
+        const elapsed = Math.floor((Date.now() - startTime) / 1000);
+        const minutes = Math.floor(elapsed / 60);
+        const seconds = elapsed % 60;
+        displayTime(minutes, seconds);
+    }, 1000);
+}</code></pre>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Demo 1: Single Flippable Card</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Demo 1: Single Flippable Card</h1>
+        <p class="instructions">Click the card to flip it!</p>
+        
+        <div class="card-wrapper">
+            <div class="card" onclick="flipCard(this)">
+                <div class="card-inner">
+                    <div class="card-front">
+                        <div class="card-content">
+                            <h2>?</h2>
+                            <p>Click to reveal</p>
+                        </div>
+                    </div>
+                    <div class="card-back">
+                        <div class="card-content">
+                            <h2>🐱</h2>
+                            <p>Cat</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="explanation">
+            <h2>How it Works:</h2>
+            <ul>
+                <li><strong>HTML:</strong> Card structure with front and back faces</li>
+                <li><strong>CSS:</strong> 3D perspective and transform for flip animation</li>
+                <li><strong>JavaScript:</strong> Toggle 'flipped' class on click</li>
+                <li><strong>Key CSS Properties:</strong> perspective, transform-style: preserve-3d, backface-visibility</li>
+            </ul>
+        </div>
+
+        <div class="code-preview">
+            <h3>Key Code:</h3>
+            <pre><code>// JavaScript
+function flipCard(card) {
+    card.classList.toggle('flipped');
+}
+
+// CSS
+.card {
+    perspective: 1000px;
+}
+
+.card.flipped .card-inner {
+    transform: rotateY(180deg);
+}</code></pre>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
